@@ -1,0 +1,44 @@
+require_relative 'book.rb'
+require_relative 'library.rb'
+require_relative 'user.rb'
+
+p "Welcome to BiblioTec Library Tracker TM V1.0"
+# create library
+library = Library.new("Conan's Library", "Greystones, Co. Wicklow")
+
+# create books
+book1 = Book.new("Grapes of Wrath", "John Steinback", 1, "Fiction")
+book2 = Book.new("Misery", "Stephen King", 2, "Horror")
+book3 = Book.new("American Pyscho", "Bret Easton Ellis", 3, "Fiction")
+book4 = Book.new("House of the Dead", "Fyodor Dostoyevski", 4, "Fiction")
+book5 = Book.new("The Hungry Catepillar", "Conan Martin", 5, "Crime")
+
+books = [book1, book2, book3, book4, book5]
+
+# create users
+user1 = User.new("Conan", "Greystones", 1, 26)
+user2 = User.new("Craig", "Delgany", 2, 27)
+user3 = User.new("Daragh", "Bray", 3, 25)
+
+users = [user1, user2, user3]
+
+# add books and users to library
+library.add_books(books)
+library.add_users(users)
+
+library.print_info
+
+# rent and return some books
+user1.rent_book(book1)
+user1.rent_book(book2)
+user1.return_book(book2)
+user2.rent_book(book5)
+user3.rent_book(book4)
+user2.rent_book(book2)
+p ""
+p "------------------------------------------------------------------------------------------------------------"
+p "AFTER RENTALS/RETURNS"
+p ""
+
+library.print_info
+
